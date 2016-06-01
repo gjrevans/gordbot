@@ -41,6 +41,9 @@ app.post('/webhook/', function (req, res) {
                 sendGenericMessage(sender)
                 continue
             }
+            else if (text === 'Hi') {
+              sendTextMessage(sender, "Hey There, I'm Gordbot, what's up?"))
+            }
             sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         }
         if (event.postback) {
@@ -52,9 +55,9 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200)
 })
 
+// Echo back messages
 var token = "EAAMBEVLQHYwBABjuP1k8Q3ZAbv8HPUqRGHaQN0R9axz7qCuwEpnmDb1mR2przs4EArncWDgT0XTfteZBMhsdFns1tOpjlffhp7vkac0juyxdLZAs41HrWZBlNXmd3QyMkpMHZBWB3rp0mNjrZBgIWwOcRB3BR8q8VwZAEYsZBboYRgZDZD"
 
-// Echo back messages
 function sendTextMessage(sender, text) {
     messageData = {
         text:text
